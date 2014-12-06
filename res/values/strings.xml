@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">سجل قطر الوطني</string>
+
+    <!-- SCREENS TITLES -->
+    <string name="home">Home</string>
+    <string name="about_qatar">About Qatar</string>
+    <string name="media_center">Media center</string>
+    <string name="national_day">National day</string>
+    <string name="sponsors">Sponsors</string>
+
+    <!-- MAIN ACTIVITY -->
+    <string name="ok">Ok</string>
+    <string name="cancel">Cancel</string>
+    <string name="language_settings">Language settings</string>
+	<string name="you_must_restart_app">You must restart the app to update language</string>
+    
+    <!-- SPLASH -->
+    <string name="powered_by">Powered by</string>
+    
+    <!-- MENU DRAWER -->
+    <string name="language">Language</string>
+    <string name="arabic">عربي</string>
+    <string name="english">English</string>
+
+    <!-- ABOUT QATAR -->
+    <string name="culture">Culture</string>
+    <string name="education">Education</string>
+    <string name="health">Health</string>
+    <string name="manufacturing">Industry</string>
+    
+    <!-- NATIONAL DAY -->
+    <string name="events">Events</string>
+    <string name="videos">Videos</string>
+
+</resources>

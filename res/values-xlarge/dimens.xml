@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- PUBLIC -->
+    <dimen name="text_medium">38sp</dimen>
+    <dimen name="text_small">30sp</dimen>
+    
+    <!-- ABOUT QATAR -->
+    <dimen name="about_qatar_tabs_seperator_height">57dp</dimen>
+    
+    <!-- ABOUT QATAR CATEGORY -->
+    <dimen name="about_qatar_category_image_height">450dp</dimen>
+    
+    <!-- SPONSORS ITEM -->
+    <dimen name="sponsors_item_layout_padding">34dp</dimen>
+    <dimen name="sponsors_item_thumbnail_width">101dp</dimen>
+    
+    <!-- EVENTS -->
+    <dimen name="events_twowayview_thumbnail_width">202dp</dimen>
+    <dimen name="events_twowayview_thumbnail_height">192dp</dimen>
+    
+    <!-- GALLERY -->
+    <dimen name="gallery_image_width">743dp</dimen>
+    
+</resources>

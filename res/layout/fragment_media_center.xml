@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/about_qatar_category_layout_padding" >
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="@dimen/media_center_image_margin"
+        android:layout_marginTop="@dimen/media_center_image_margin"
+        android:src="@drawable/egyptian_media_center_logo" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/about_qatar_category_text_margin_top" >
+
+        <TextView
+            android:id="@+id/text_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="وصف وصف وصف وصف وصف وصف"
+            android:textColor="@color/font_dark_brown"
+            android:textSize="@dimen/text_medium" />
+    </ScrollView>
+
+</LinearLayout>

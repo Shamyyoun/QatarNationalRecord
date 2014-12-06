@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:id="@+id/container_national_day"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" >
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/main"
+        android:paddingBottom="@dimen/about_qatar_tabs_panel_padding_bottom" 
+        android:paddingTop="@dimen/about_qatar_tabs_panel_padding_top" >
+
+        <TextView
+            android:id="@+id/text_videos"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/videos"
+            android:textColor="@color/font_white"
+            android:textSize="@dimen/text_medium" />
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="@dimen/about_qatar_tabs_seperator_height"
+            android:background="@color/tabs_seperator_bg" />
+
+        <TextView
+            android:id="@+id/text_events"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/events"
+            android:textColor="@color/font_white"
+            android:textSize="@dimen/text_medium" />
+    </LinearLayout>
+
+</LinearLayout>
