@@ -5,11 +5,11 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBarActivity;
 
+import com.noqwerty.sqw.R;
+
 public class FragmentUtil {
 	private ActionBarActivity activity;
 	private boolean skipIfVisible;
-	private int animFragmentIn = -1;
-	private int animFragmentOut = -1;
 
 	public FragmentUtil(ActionBarActivity activity, boolean skipIfVisible) {
 		this.skipIfVisible = skipIfVisible;
@@ -37,16 +37,10 @@ public class FragmentUtil {
 				FragmentTransaction ft = activity.getSupportFragmentManager()
 						.beginTransaction();
 
-				// set custom animations if possible
-				if (animFragmentIn != -1 && animFragmentOut != -1) {
-					ft.setCustomAnimations(animFragmentIn, animFragmentOut);
-				}
-
-				// try & catch to avoid exception if container not in the current
-				// view
+				// try & catch to avoid exception if container not in the current view
 				try {
 					ft.replace(containerLayout, fragment, tag);
-					ft.commit();
+					ft.commitAllowingStateLoss();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -55,16 +49,10 @@ public class FragmentUtil {
 			FragmentTransaction ft = activity.getSupportFragmentManager()
 					.beginTransaction();
 
-			// set custom animations if possible
-			if (animFragmentIn != -1 && animFragmentOut != -1) {
-				ft.setCustomAnimations(animFragmentIn, animFragmentOut);
-			}
-
-			// try & catch to avoid exception if container not in the current
-			// view
+			// try & catch to avoid exception if container not in the current view
 			try {
 				ft.replace(containerLayout, fragment, tag);
-				ft.commit();
+				ft.commitAllowingStateLoss();
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
@@ -79,13 +67,5 @@ public class FragmentUtil {
 		} else {
 			return true;
 		}
-	}
-
-	public void setFragmentInAnimation(int animFragmentIn) {
-		this.animFragmentIn = animFragmentIn;
-	}
-
-	public void setFragmentOutAnimation(int animFragmentOut) {
-		this.animFragmentOut = animFragmentOut;
 	}
 }

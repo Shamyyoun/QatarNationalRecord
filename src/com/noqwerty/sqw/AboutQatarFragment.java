@@ -17,18 +17,19 @@ public class AboutQatarFragment extends Fragment implements OnClickListener {
 	// fragment objects
 	private MainActivity activity;
 	private FragmentUtil fragmentUtil;
+	private int tab = -1;
 
 	// tabs objects
-	private TextView textManufacuring;
-	private TextView textHealth;
-	private TextView textEducation;
-	private TextView textCulture;
+	private TextView textAboutQatar;
+	private TextView textPast;
+	private TextView textPresent;
+	private TextView textFuture;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-		View rootView = inflater.inflate(R.layout.fragment_about_qatar, container,
-				false);
+		View rootView = inflater.inflate(R.layout.fragment_about_qatar,
+				container, false);
 		initComponents(rootView);
 		return rootView;
 	}
@@ -36,68 +37,115 @@ public class AboutQatarFragment extends Fragment implements OnClickListener {
 	private void initComponents(View rootView) {
 		activity = (MainActivity) getActivity();
 		fragmentUtil = new FragmentUtil(activity, false);
+		Bundle bundle = getArguments();
+		if (bundle != null) {
+			tab = bundle.getInt(Constants.KEY_TAB, -1);
+		}
 
-		// customize actionbar
+		// customize activity
 		activity.textTitle.setText(activity.getString(R.string.about_qatar));
 		activity.buttonPlay.setVisibility(View.GONE);
+		activity.spinner.setVisibility(View.GONE);
+		activity.stopMusic();
 
 		// init tabs objects
-		textManufacuring = (TextView) rootView
-				.findViewById(R.id.text_manufacturing);
-		textHealth = (TextView) rootView.findViewById(R.id.text_health);
-		textEducation = (TextView) rootView.findViewById(R.id.text_education);
-		textCulture = (TextView) rootView.findViewById(R.id.text_culture);
+		textAboutQatar = (TextView) rootView.findViewById(R.id.text_aboutQatar);
+		textPast = (TextView) rootView.findViewById(R.id.text_past);
+		textPresent = (TextView) rootView.findViewById(R.id.text_present);
+		textFuture = (TextView) rootView.findViewById(R.id.text_future);
 
 		// add listeners
-		textManufacuring.setOnClickListener(this);
-		textHealth.setOnClickListener(this);
-		textEducation.setOnClickListener(this);
-		textCulture.setOnClickListener(this);
+		textAboutQatar.setOnClickListener(this);
+		textPast.setOnClickListener(this);
+		textPresent.setOnClickListener(this);
+		textFuture.setOnClickListener(this);
 
-		// goto first tab as default
-		Bundle bundle = new Bundle();
-		bundle.putInt(Constants.KEY_CATEGORY_TYPE,
-				Constants.HOME_CATEGORY_CULTURE);
-		fragmentUtil.gotoFragment(R.id.container_about_qatar,
-				new AboutQatarCategoryFragment(), AboutQatarCategoryFragment.TAG, bundle);
+		// check if tab sent in arguments
+		if (tab != -1) {
+			// goto tab
+			Bundle tabBundle = new Bundle();
+			tabBundle.putInt(Constants.KEY_CATEGORY_TYPE, tab);
+			fragmentUtil.gotoFragment(R.id.container_about_qatar,
+					new AboutQatarCategoryFragment(), AboutQatarCategoryFragment.TAG, tabBundle);
+			
+			// selected desired tab
+			switch (tab) {
+			case Constants.ABOUT_QATAR_CATEGORY_FUTURE:
+				selectTab(textFuture);
+				break;
+
+			default:
+				break;
+			}
+		} else  {
+			// goto about Qatar main as default
+			fragmentUtil.gotoFragment(R.id.container_about_qatar,
+					new AboutQatarMainFragment(), AboutQatarMainFragment.TAG);
+			
+			selectTab(textAboutQatar);
+		}
+		
 	}
 
 	@Override
 	public void onClick(View v) {
 		Bundle bundle = null;
 		switch (v.getId()) {
-		case R.id.text_manufacturing:
-			bundle = new Bundle();
-			bundle.putInt(Constants.KEY_CATEGORY_TYPE,
-					Constants.HOME_CATEGORY_MANUFACTURING);
+		case R.id.text_aboutQatar:
+			fragmentUtil.gotoFragment(R.id.container_about_qatar,
+					new AboutQatarMainFragment(), AboutQatarMainFragment.TAG);
+			
+			selectTab(textAboutQatar);
 			break;
 
-		case R.id.text_health:
+		case R.id.text_past:
 			bundle = new Bundle();
-			bundle.putInt(Constants.KEY_CATEGORY_TYPE,
-					Constants.HOME_CATEGORY_HEALTH);
+			bundle.putInt(Constants.KEY_CATEGORY_TYPE, Constants.ABOUT_QATAR_CATEGORY_PAST);
+
+			fragmentUtil.gotoFragment(R.id.container_about_qatar,
+					new AboutQatarCategoryFragment(),
+					AboutQatarCategoryFragment.TAG, bundle);
+			
+			selectTab(textPast);
 			break;
 
-		case R.id.text_education:
+		case R.id.text_present:
 			bundle = new Bundle();
 			bundle.putInt(Constants.KEY_CATEGORY_TYPE,
-					Constants.HOME_CATEGORY_EDUCATION);
+					Constants.ABOUT_QATAR_CATEGORY_MANUFACTURING);
+
+			fragmentUtil.gotoFragment(R.id.container_about_qatar,
+					new AboutQatarCategoryFragment(),
+					AboutQatarCategoryFragment.TAG, bundle);
+			
+			selectTab(textPresent);
 			break;
 
-		case R.id.text_culture:
+		case R.id.text_future:
 			bundle = new Bundle();
 			bundle.putInt(Constants.KEY_CATEGORY_TYPE,
-					Constants.HOME_CATEGORY_CULTURE);
+					Constants.ABOUT_QATAR_CATEGORY_FUTURE);
+
+			fragmentUtil.gotoFragment(R.id.container_about_qatar,
+					new AboutQatarCategoryFragment(),
+					AboutQatarCategoryFragment.TAG, bundle);
+			
+			selectTab(textFuture);
 			break;
 
 		default:
 			break;
 		}
-
-		if (bundle != null) {
-			fragmentUtil.gotoFragment(R.id.container_about_qatar,
-					new AboutQatarCategoryFragment(), AboutQatarCategoryFragment.TAG,
-					bundle);
-		}
+	}
+	
+	private void selectTab(TextView textView) {
+		// unselect all first
+		textAboutQatar.setSelected(false);
+		textPast.setSelected(false);
+		textPresent.setSelected(false);
+		textFuture.setSelected(false);
+		
+		// select desired item
+		textView.setSelected(true);
 	}
 }

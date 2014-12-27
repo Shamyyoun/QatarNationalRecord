@@ -9,21 +9,12 @@
     android:paddingRight="@dimen/events_layout_padding_left"
     android:paddingTop="@dimen/events_layout_padding_top" >
 
-    <TextView
-        android:id="@+id/text_description"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="فاعلية فاعلية فاعلية "
-        android:textColor="@color/font_dark_brown"
-        android:textSize="@dimen/text_small" />
-
     <org.lucasr.twowayview.TwoWayView
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:id="@+id/twoWayView_thumbnails"
         android:layout_width="wrap_content"
         android:layout_height="@dimen/events_twowayview_thumbnail_height"
         android:layout_gravity="center_horizontal"
-        android:layout_marginTop="@dimen/events_list_margin_top"
         android:orientation="horizontal"
         android:scrollbars="horizontal"
         app:layoutManager="ListLayoutManager" />

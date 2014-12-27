@@ -18,8 +18,8 @@ public final class R {
 		public static final int verticalDivider = 0x7f010003;
 	}
 	public static final class id {
-		public static final int item_click_support = 0x7f050000;
-		public static final int item_selection_support = 0x7f050001;
+		public static final int item_click_support = 0x7f060000;
+		public static final int item_selection_support = 0x7f060001;
 	}
 	public static final class styleable {
 		public static final int[] DividerItemDecoration = { 0x01010129, 0x7f010003, 0x7f010004 };

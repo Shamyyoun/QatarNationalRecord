@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:textSize="@dimen/actionbar_title_size"
+    android:gravity="center"
+    android:padding="@dimen/about_qatar_category_spinner_item_text_padding"
+    android:background="@color/brown"
+    android:textColor="@android:color/white" />

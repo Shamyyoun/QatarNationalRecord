@@ -12,21 +12,21 @@
     </FrameLayout>
 
     <LinearLayout
+        android:gravity="center"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/main"
-        android:paddingBottom="@dimen/about_qatar_tabs_panel_padding_bottom"
-        android:paddingTop="@dimen/about_qatar_tabs_panel_padding_top" >
+        android:background="@color/brown"
+        android:layout_height="@dimen/abc_action_bar_default_height">
 
         <TextView
-            android:id="@+id/text_culture"
+            android:id="@+id/text_aboutQatar"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/culture"
+            android:background="@drawable/tab_item"
+            android:text="@string/qatar"
             android:textColor="@color/font_white"
-            android:textSize="@dimen/text_medium" />
+            android:textSize="@dimen/actionbar_title_size" />
 
         <View
             android:layout_width="1dp"
@@ -34,14 +34,15 @@
             android:background="@color/tabs_seperator_bg" />
 
         <TextView
-            android:id="@+id/text_education"
+            android:background="@drawable/tab_item"
+            android:id="@+id/text_past"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/education"
+            android:text="@string/past"
             android:textColor="@color/font_white"
-            android:textSize="@dimen/text_medium" />
+            android:textSize="@dimen/actionbar_title_size" />
 
         <View
             android:layout_width="1dp"
@@ -49,14 +50,15 @@
             android:background="@color/tabs_seperator_bg" />
 
         <TextView
-            android:id="@+id/text_health"
+            android:background="@drawable/tab_item"
+            android:id="@+id/text_present"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/health"
+            android:text="@string/present"
             android:textColor="@color/font_white"
-            android:textSize="@dimen/text_medium" />
+            android:textSize="@dimen/actionbar_title_size" />
 
         <View
             android:layout_width="1dp"
@@ -64,15 +66,15 @@
             android:background="@color/tabs_seperator_bg" />
 
         <TextView
-            android:id="@+id/text_manufacturing"
+            android:background="@drawable/tab_item"
+            android:id="@+id/text_future"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/manufacturing"
+            android:text="@string/future"
             android:textColor="@color/font_white"
-            android:textSize="@dimen/text_medium" />
-
+            android:textSize="@dimen/actionbar_title_size" />
     </LinearLayout>
 
 </LinearLayout>

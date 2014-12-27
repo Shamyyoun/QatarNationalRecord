@@ -6,6 +6,8 @@ import android.app.AlertDialog;
 import android.app.AlertDialog.Builder;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.media.MediaPlayer;
+import android.media.MediaPlayer.OnCompletionListener;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.ActionBar;
@@ -17,6 +19,7 @@ import android.widget.ImageButton;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.noqwerty.sqw.datamodels.Constants;
@@ -28,10 +31,12 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
 	protected TextView textTitle;
 	protected ImageButton buttonIcon;
 	protected ImageButton buttonPlay;
+	protected Spinner spinner;
 	private boolean musicPlaying = false;
 
 	// activity objects
 	private FragmentUtil fragmentUtil;
+	private boolean paused;
 
 	// menu drawer objects
 	protected MenuDrawer mDrawer;
@@ -40,10 +45,14 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
 	private TextView textMediaCenter;
 	private TextView textNationalDay;
 	private TextView textSponsors;
+	private TextView textQatar2020;
 	private TextView textLanguage;
 	private RadioGroup radioGroupLanguage;
 	private RadioButton radioAr;
 	private RadioButton radioEn;
+
+	// music player objects
+	private MediaPlayer playerMusic;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -51,7 +60,7 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
 		FontUtil.setDefaultFont(getApplicationContext(), "MONOSPACE",
 				"font.ttf");
 		super.onCreate(savedInstanceState);
-		
+
 		// load language
 		String appLanguage = AppController.getLanguage(getApplicationContext());
 		if (appLanguage == null) {
@@ -71,10 +80,12 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
 				.findViewById(R.id.button_icon);
 		buttonPlay = (ImageButton) actionbarRootView
 				.findViewById(R.id.button_play);
+		spinner = (Spinner) actionbarRootView
+				.findViewById(R.id.spinner);
 
 		// init menu drawer and activity view
 		Position menuDrawerPosition;
-		if (appLanguage == Constants.LANG_EN) {
+		if (appLanguage.equals(Constants.LANG_EN)) {
 			menuDrawerPosition = Position.LEFT;
 		} else {
 			menuDrawerPosition = Position.RIGHT;
@@ -90,6 +101,7 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
 		textMediaCenter = (TextView) findViewById(R.id.text_mediaCenter);
 		textNationalDay = (TextView) findViewById(R.id.text_nationalDay);
 		textSponsors = (TextView) findViewById(R.id.text_sponsors);
+		textQatar2020 = (TextView) findViewById(R.id.text_qatar2020);
 		textLanguage = (TextView) findViewById(R.id.text_language);
 		radioGroupLanguage = (RadioGroup) findViewById(R.id.radioGroup_language);
 		radioAr = (RadioButton) findViewById(R.id.radio_ar);
@@ -100,16 +112,18 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
 				WindowManager.LayoutParams.FLAG_NOT_TOUCHABLE);
 
 		// init activity components
-		fragmentUtil = new FragmentUtil(this, true);
+		fragmentUtil = new FragmentUtil(this, false);
 
 		// set initials
 		fragmentUtil.gotoFragment(R.id.container_main, new SplashFragment(),
 				SplashFragment.TAG);
-		if (appLanguage == Constants.LANG_AR) {
+		
+		if (appLanguage.equals(Constants.LANG_AR)) {
 			radioAr.setChecked(true);
 		} else {
 			radioEn.setChecked(true);
 		}
+		textHome.setSelected(true);
 
 		// add listeners
 		buttonIcon.setOnClickListener(this);
@@ -120,52 +134,62 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
 		textMediaCenter.setOnClickListener(this);
 		textNationalDay.setOnClickListener(this);
 		textSponsors.setOnClickListener(this);
+		textQatar2020.setOnClickListener(this);
 		textLanguage.setOnClickListener(this);
-		
-		radioGroupLanguage.setOnCheckedChangeListener(new OnCheckedChangeListener() {
-			@Override
-			public void onCheckedChanged(RadioGroup group, final int checkedId) {
-				final String selectedLanguage;
-				if (checkedId == R.id.radio_en) {
-					selectedLanguage = Constants.LANG_EN;
-				} else {
-					selectedLanguage = Constants.LANG_AR;
-				}
-				
-				// show confirmation dialog
-				AlertDialog.Builder builder = new Builder(MainActivity.this);
 
-				String title = getString(R.string.language_settings);
-				String message = getString(R.string.you_must_restart_app);
+		radioGroupLanguage
+				.setOnCheckedChangeListener(new OnCheckedChangeListener() {
+					@Override
+					public void onCheckedChanged(RadioGroup group,
+							final int checkedId) {
+						final String selectedLanguage;
+						if (checkedId == R.id.radio_en) {
+							selectedLanguage = Constants.LANG_EN;
+						} else {
+							selectedLanguage = Constants.LANG_AR;
+						}
 
-				builder.setTitle(title);
-				builder.setMessage(message);
-				builder.setPositiveButton(getString(R.string.ok),
-						new DialogInterface.OnClickListener() {
-							@Override
-							public void onClick(DialogInterface dialog, int which) {
-								AppController.updateLanguage(getApplicationContext(), selectedLanguage);
-								AppController.updateLocaleSetting(getApplicationContext(), selectedLanguage);
+						// show confirmation dialog
+						AlertDialog.Builder builder = new Builder(
+								MainActivity.this);
 
-								// restart this activity
-								Intent intent = new Intent(MainActivity.this,
-										MainActivity.class);
-								startActivity(intent);
-								MainActivity.this.finish();
-							}
-						});
-				builder.setNegativeButton(getString(R.string.cancel),
-						new DialogInterface.OnClickListener() {
-							@Override
-							public void onClick(DialogInterface dialog, int which) {
-								dialog.dismiss();
-							}
-						});
-				AlertDialog dialog = builder.create();
-				dialog.show();
-			}
-		});
+						String title = getString(R.string.language_settings);
+						String message = getString(R.string.you_must_restart_app);
 
+						builder.setTitle(title);
+						builder.setMessage(message);
+						builder.setPositiveButton(getString(R.string.ok),
+								new DialogInterface.OnClickListener() {
+									@Override
+									public void onClick(DialogInterface dialog,
+											int which) {
+										AppController.updateLanguage(
+												getApplicationContext(),
+												selectedLanguage);
+										AppController.updateLocaleSetting(
+												getApplicationContext(),
+												selectedLanguage);
+
+										// restart this activity
+										Intent intent = new Intent(
+												MainActivity.this,
+												MainActivity.class);
+										startActivity(intent);
+										MainActivity.this.finish();
+									}
+								});
+						builder.setNegativeButton(getString(R.string.cancel),
+								new DialogInterface.OnClickListener() {
+									@Override
+									public void onClick(DialogInterface dialog,
+											int which) {
+										dialog.dismiss();
+									}
+								});
+						AlertDialog dialog = builder.create();
+						dialog.show();
+					}
+				});
 	}
 
 	@Override
@@ -198,7 +222,11 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
 		case R.id.text_sponsors:
 			onSponsors();
 			break;
-			
+
+		case R.id.text_qatar2020:
+			onQatar2020();
+			break;
+
 		case R.id.text_language:
 			onLanguage();
 			break;
@@ -217,48 +245,101 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
 		}
 	}
 
-	protected void onPlay() {
+	private void onPlay() {
 		if (musicPlaying) {
-			// TODO stop music
-			buttonPlay.setImageResource(R.drawable.actionbar_play);
-			musicPlaying = false;
+			stopMusic();
 		} else {
-			// TODO play music
+			playMusic();
+		}
+	}
+
+	protected void playMusic() {
+		try {
+			// create player
+			playerMusic = MediaPlayer.create(getApplicationContext(),
+					R.raw.nashid_music);
+			
+			// add completion listener
+			playerMusic.setOnCompletionListener(new OnCompletionListener() {
+				@Override
+				public void onCompletion(MediaPlayer mp) {
+					stopMusic();
+				}
+			});
+			
+			// statr player
+			playerMusic.start();
+
+			// change buttons
 			buttonPlay.setImageResource(R.drawable.actionbar_pause);
 			musicPlaying = true;
+		} catch (Exception e) {
+		}
+	}
+
+	protected void stopMusic() {
+		try {
+			// stop music
+			playerMusic.stop();
+			playerMusic.release();
+
+			// change buttons
+			buttonPlay.setImageResource(R.drawable.actionbar_play);
+			musicPlaying = false;
+		} catch (Exception e) {
 		}
 	}
 
 	private void onHome() {
+		fragmentUtil.gotoFragment(R.id.container_main, new HomeFragment(),
+				HomeFragment.TAG);
+
+		selectMenuItem(textHome);
 		mDrawer.closeMenu();
-		fragmentUtil.gotoFragment(R.id.container_main,
-				new HomeFragment(), HomeFragment.TAG);
 	}
 
 	private void onAboutQatar() {
-		mDrawer.closeMenu();
 		fragmentUtil.gotoFragment(R.id.container_main,
 				new AboutQatarFragment(), AboutQatarFragment.TAG);
+
+		selectMenuItem(textAboutQatar);
+		mDrawer.closeMenu();
 	}
 
 	private void onMediaCenter() {
-		mDrawer.closeMenu();
 		fragmentUtil.gotoFragment(R.id.container_main,
 				new MediaCenterFragment(), MediaCenterFragment.TAG);
+
+		selectMenuItem(textMediaCenter);
+		mDrawer.closeMenu();
 	}
 
 	private void onNationalDay() {
-		mDrawer.closeMenu();
 		fragmentUtil.gotoFragment(R.id.container_main,
 				new NationalDayFragment(), NationalDayFragment.TAG);
+
+		selectMenuItem(textNationalDay);
+		mDrawer.closeMenu();
 	}
 
 	private void onSponsors() {
+		fragmentUtil.gotoFragment(R.id.container_main, new SponsorsFragment(),
+				SponsorsFragment.TAG);
+
+		selectMenuItem(textSponsors);
 		mDrawer.closeMenu();
-		fragmentUtil.gotoFragment(R.id.container_main,
-				new SponsorsFragment(), SponsorsFragment.TAG);
 	}
-	
+
+	private void onQatar2020() {
+		Bundle bundle = new Bundle();
+		bundle.putInt(Constants.KEY_TAB, Constants.ABOUT_QATAR_CATEGORY_FUTURE);
+		fragmentUtil.gotoFragment(R.id.container_main,
+				new AboutQatarFragment(), AboutQatarFragment.TAG, bundle);
+
+		selectMenuItem(textQatar2020);
+		mDrawer.closeMenu();
+	}
+
 	private void onLanguage() {
 		// show or hide radio group
 		if (radioGroupLanguage.getVisibility() == View.VISIBLE) {
@@ -268,6 +349,19 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
 			// show
 			radioGroupLanguage.setVisibility(View.VISIBLE);
 		}
+	}
+
+	private void selectMenuItem(TextView textView) {
+		// unselect all first
+		textHome.setSelected(false);
+		textAboutQatar.setSelected(false);
+		textMediaCenter.setSelected(false);
+		textNationalDay.setSelected(false);
+		textSponsors.setSelected(false);
+		textQatar2020.setSelected(false);
+
+		// select desired item
+		textView.setSelected(true);
 	}
 
 	@Override
@@ -289,4 +383,20 @@ public class MainActivity extends ActionBarActivity implements OnClickListener {
 		}
 	}
 
+	@Override
+	protected void onPause() {
+		stopMusic();
+		super.onPause();
+		paused = true;
+	}
+	
+	@Override
+	protected void onResume() {
+		super.onResume();
+		paused = false;
+	}
+
+	public boolean isPaused() {
+		return paused;
+	}
 }

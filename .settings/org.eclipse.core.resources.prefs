@@ -1,7 +1,12 @@
 eclipse.preferences.version=1
+encoding//res/raw/qatar_old.txt=UTF-8
 encoding//src/com/noqwerty/sqw/AboutQatarCategoryFragment.java=UTF-8
+encoding//src/com/noqwerty/sqw/AboutQatarMainFragment.java=UTF-8
 encoding//src/com/noqwerty/sqw/EventsFragment.java=UTF-8
 encoding//src/com/noqwerty/sqw/HomeFragment.java=UTF-8
-encoding//src/com/noqwerty/sqw/MediaCenterFragment.java=UTF-8
+encoding//src/com/noqwerty/sqw/MediaCenterMainFragment.java=UTF-8
+encoding//src/com/noqwerty/sqw/NationalDayMainFragment.java=UTF-8
+encoding//src/com/noqwerty/sqw/PresidentsFragment.java=UTF-8
+encoding//src/com/noqwerty/sqw/ProjectsFragment.java=UTF-8
 encoding//src/com/noqwerty/sqw/SponsorsFragment.java=UTF-8
 encoding//src/com/noqwerty/sqw/VideosFragment.java=UTF-8

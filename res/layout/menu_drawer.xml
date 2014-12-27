@@ -14,75 +14,89 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/menudrawer_first_item_margin_top"
-            android:background="@drawable/menu_drawer_selected_item_bg"
+            android:background="@drawable/menu_drawer_item"
             android:paddingBottom="@dimen/menudrawer_item_padding_top"
             android:paddingLeft="@dimen/menudrawer_item_padding_right"
             android:paddingRight="@dimen/menudrawer_item_padding_right"
             android:paddingTop="@dimen/menudrawer_item_padding_top"
             android:text="@string/home"
             android:textColor="@color/font_white"
-            android:textSize="@dimen/text_medium" />
+            android:textSize="@dimen/actionbar_title_size" />
 
         <TextView
             android:id="@+id/text_aboutQatar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/menudrawer_item_margin_top"
-            android:background="@drawable/menu_drawer_selected_item_bg"
+            android:background="@drawable/menu_drawer_item"
             android:paddingBottom="@dimen/menudrawer_item_padding_top"
             android:paddingLeft="@dimen/menudrawer_item_padding_right"
             android:paddingRight="@dimen/menudrawer_item_padding_right"
             android:paddingTop="@dimen/menudrawer_item_padding_top"
             android:text="@string/about_qatar"
             android:textColor="@color/font_white"
-            android:textSize="@dimen/text_medium" />
+            android:textSize="@dimen/actionbar_title_size" />
 
         <TextView
             android:id="@+id/text_mediaCenter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/menudrawer_item_margin_top"
-            android:background="@drawable/menu_drawer_selected_item_bg"
+            android:background="@drawable/menu_drawer_item"
             android:paddingBottom="@dimen/menudrawer_item_padding_top"
             android:paddingLeft="@dimen/menudrawer_item_padding_right"
             android:paddingRight="@dimen/menudrawer_item_padding_right"
             android:paddingTop="@dimen/menudrawer_item_padding_top"
             android:text="@string/media_center"
             android:textColor="@color/font_white"
-            android:textSize="@dimen/text_medium" />
+            android:textSize="@dimen/actionbar_title_size" />
 
         <TextView
             android:id="@+id/text_nationalDay"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/menudrawer_item_margin_top"
-            android:background="@drawable/menu_drawer_selected_item_bg"
+            android:background="@drawable/menu_drawer_item"
             android:paddingBottom="@dimen/menudrawer_item_padding_top"
             android:paddingLeft="@dimen/menudrawer_item_padding_right"
             android:paddingRight="@dimen/menudrawer_item_padding_right"
             android:paddingTop="@dimen/menudrawer_item_padding_top"
             android:text="@string/national_day"
             android:textColor="@color/font_white"
-            android:textSize="@dimen/text_medium" />
+            android:textSize="@dimen/actionbar_title_size" />
 
         <TextView
             android:id="@+id/text_sponsors"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/menudrawer_item_margin_top"
-            android:background="@drawable/menu_drawer_selected_item_bg"
+            android:background="@drawable/menu_drawer_item"
             android:paddingBottom="@dimen/menudrawer_item_padding_top"
             android:paddingLeft="@dimen/menudrawer_item_padding_right"
             android:paddingRight="@dimen/menudrawer_item_padding_right"
             android:paddingTop="@dimen/menudrawer_item_padding_top"
             android:text="@string/sponsors"
             android:textColor="@color/font_white"
-            android:textSize="@dimen/text_medium" />
+            android:textSize="@dimen/actionbar_title_size" />
+
+        <TextView
+            android:id="@+id/text_qatar2020"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/menudrawer_item_margin_top"
+            android:background="@drawable/menu_drawer_item"
+            android:paddingBottom="@dimen/menudrawer_item_padding_top"
+            android:paddingLeft="@dimen/menudrawer_item_padding_right"
+            android:paddingRight="@dimen/menudrawer_item_padding_right"
+            android:paddingTop="@dimen/menudrawer_item_padding_top"
+            android:text="@string/qatar2022"
+            android:textColor="@color/font_white"
+            android:textSize="@dimen/actionbar_title_size" />
 
         <LinearLayout
             android:animateLayoutChanges="true"
             android:layout_marginTop="@dimen/menudrawer_item_margin_top"
-            android:background="@drawable/menu_drawer_selected_item_bg"
+            android:background="@drawable/menu_drawer_item"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical" >
@@ -97,7 +111,7 @@
                 android:paddingTop="@dimen/menudrawer_item_padding_top"
                 android:text="@string/language"
                 android:textColor="@color/font_white"
-                android:textSize="@dimen/text_medium" />
+                android:textSize="@dimen/actionbar_title_size" />
 
             <RadioGroup
                 android:paddingBottom="@dimen/menudrawer_item_padding_top"

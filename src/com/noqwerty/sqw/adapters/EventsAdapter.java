@@ -63,8 +63,6 @@ public class EventsAdapter extends AnimatedExpandableListAdapter {
 
 			convertView = inflater
 					.inflate(childLayoutResourceId, parent, false);
-			holder.textDescription = (TextView) convertView
-					.findViewById(R.id.text_description);
 			holder.twoWayViewThumbnails = (TwoWayView) convertView
 					.findViewById(R.id.twoWayView_thumbnails);
 
@@ -73,26 +71,24 @@ public class EventsAdapter extends AnimatedExpandableListAdapter {
 			holder = (ChildHolder) convertView.getTag();
 		}
 
-		holder.textDescription.setText(event.getDescription());
-
 		// set thumbnails adapter
 		EventThumbnailsAdapter adapter = new EventThumbnailsAdapter(activity,
-				event.getImagesResources(), R.layout.twowayview_thumbnails_item);
+				event, R.layout.twowayview_thumbnails_item);
 		holder.twoWayViewThumbnails.setAdapter(adapter);
 
-		// add click listener to two way view
+		// add listenr to twoway thumbails
 		ItemClickSupport itemClick = ItemClickSupport
 				.addTo(holder.twoWayViewThumbnails);
 		itemClick.setOnItemClickListener(new OnItemClickListener() {
 			@Override
-			public void onItemClick(RecyclerView parent, View child,
+			public void onItemClick(RecyclerView parent, View view,
 					int position, long id) {
-
+				
 				// create gallery dialog
 				Dialog dialog = new Dialog(activity,
 						android.R.style.Theme_Translucent_NoTitleBar);
 				dialog.setContentView(R.layout.dialog_gallery);
-				
+
 				// customize dialog
 				dialog.setCanceledOnTouchOutside(true);
 				Window window = dialog.getWindow();
@@ -110,13 +106,12 @@ public class EventsAdapter extends AnimatedExpandableListAdapter {
 				Gallery gallery = (Gallery) dialog
 						.findViewById(R.id.gallery_images);
 				gallery.setSpacing(1);
-				
+
 				// create and set adapter
-				GalleryAdapter adapter = new GalleryAdapter(activity, event
-						.getImagesResources());
+				GalleryAdapter adapter = new GalleryAdapter(activity, event);
 				gallery.setAdapter(adapter);
 				gallery.setSelection(position, true);
-				
+
 				// show dialog
 				dialog.show();
 			}
@@ -186,7 +181,6 @@ public class EventsAdapter extends AnimatedExpandableListAdapter {
 	}
 
 	private static class ChildHolder {
-		TextView textDescription;
 		TwoWayView twoWayViewThumbnails;
 	}
 }

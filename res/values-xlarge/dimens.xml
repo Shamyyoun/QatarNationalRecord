@@ -2,24 +2,42 @@
 <resources>
 
     <!-- PUBLIC -->
-    <dimen name="text_medium">38sp</dimen>
-    <dimen name="text_small">30sp</dimen>
+    <dimen name="text_medium">24sp</dimen>
+    <dimen name="text_small">22sp</dimen>
+    
+    <!-- ACTION BAR -->
+    <dimen name="actionbar_title_size">30sp</dimen>
+    
+    <!-- SPLASH -->
+    <dimen name="splash_logo_size">400dp</dimen>
+    <dimen name="splash_emc_logo_size">180dp</dimen>
     
     <!-- ABOUT QATAR -->
     <dimen name="about_qatar_tabs_seperator_height">57dp</dimen>
     
     <!-- ABOUT QATAR CATEGORY -->
     <dimen name="about_qatar_category_image_height">450dp</dimen>
+    <dimen name="about_qatar_category_spinner_item_text_padding">16sp</dimen>
     
     <!-- SPONSORS ITEM -->
-    <dimen name="sponsors_item_layout_padding">34dp</dimen>
-    <dimen name="sponsors_item_thumbnail_width">101dp</dimen>
+    <dimen name="sponsors_item_layout_padding">35dp</dimen>
+    <dimen name="sponsors_item_thumbnail_width">124dp</dimen>
     
     <!-- EVENTS -->
     <dimen name="events_twowayview_thumbnail_width">202dp</dimen>
     <dimen name="events_twowayview_thumbnail_height">192dp</dimen>
+    <dimen name="events_twowayview_refresh_size">113dp</dimen>
     
     <!-- GALLERY -->
     <dimen name="gallery_image_width">743dp</dimen>
+    
+    <!-- MEDIA CENTER -->
+    <dimen name="media_center_logo_dimen">338dp</dimen>
+    
+    <!-- NATIONAL DAY -->
+    <dimen name="national_logo_dimen">450dp</dimen>
+    
+     <!-- ROUNDED IMAGE VIEW -->
+    <dimen name="rounded_imageview_radius">45dp</dimen>
     
 </resources>

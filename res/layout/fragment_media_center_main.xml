@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="@dimen/about_qatar_category_layout_padding"
+    android:paddingTop="@dimen/about_qatar_category_layout_padding" >
+
+    <com.noqwerty.sqw.customviews.ResizableImageView
+        android:layout_width="@dimen/media_center_logo_dimen"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:src="@drawable/umc_logo" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/about_qatar_category_text_margin_top" >
+
+        <TextView
+            android:paddingRight="@dimen/about_qatar_category_layout_padding"
+            android:paddingLeft="@dimen/about_qatar_category_layout_padding"
+            android:id="@+id/text_description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="text text"
+            android:textColor="@color/font_dark_brown"
+            android:textSize="@dimen/text_medium" />
+    </ScrollView>
+
+</LinearLayout>

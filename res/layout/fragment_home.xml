@@ -7,8 +7,9 @@
         android:id="@+id/text_nashid"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="@dimen/home_layout_padding"
-        android:text="نشيد نشيد نشيد"
+        android:gravity="center"
+        android:padding="@dimen/home_text_nashid_padding"
+        android:text="nashid"
         android:textColor="@color/font_dark_brown"
         android:textSize="@dimen/text_medium" />
 

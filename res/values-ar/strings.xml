@@ -4,34 +4,67 @@
     <string name="app_name">سجل قطر الوطني</string>
 
     <!-- SCREENS TITLES -->
+    <string name="app_title">سجل قطر الوطني</string>
     <string name="home">الرئيسية</string>
     <string name="about_qatar">عن قطر</string>
     <string name="media_center">المركز الاعلامي</string>
     <string name="national_day">اليوم الوطني</string>
     <string name="sponsors">الرعاة</string>
+    <string name="qatar2022">قطر 2022</string>
 
     <!-- MAIN ACTIVITY -->
     <string name="ok">موافق</string>
     <string name="cancel">الغاء</string>
     <string name="language_settings">اعدادات اللغة</string>
-	<string name="you_must_restart_app">يتوجب عليك اعادة التشغيل لتغيير اللغة</string>
-    
+    <string name="you_must_restart_app">يتوجب عليك اعادة التشغيل لتغيير اللغة</string>
+
     <!-- SPLASH -->
     <string name="powered_by">بواسطة</string>
-    
+
     <!-- MENU DRAWER -->
     <string name="language">اللغة</string>
     <string name="arabic">عربي</string>
     <string name="english">English</string>
 
     <!-- ABOUT QATAR -->
-    <string name="culture">الثقافة</string>
+    <string name="qatar">قطر</string>
+    <string name="past">قديماً</string>
+	<string name="present">الحاضر</string>
+	<string name="future">المستقبل</string>  
+    <string name="trade">التجارة</string>
     <string name="education">التعليم</string>
-    <string name="health">الصحة</string>
+    <string name="sport">الرياضة</string>
+    <string name="tourism">السياحة</string>
     <string name="manufacturing">الصناعة</string>
-    
+    <string name="our_prisedents">حكامنا</string>
+
     <!-- NATIONAL DAY -->
     <string name="events">فاعليات</string>
     <string name="videos">فيديوهات</string>
-
+    
+    <!-- EVENTS -->
+    <string name="please_wait">برجاء الانتظار</string>
+    <string name="appears_first">تظهر للمرة الاولى فقط</string>
+    <string name="no_internet">لا يوجد اتصال بالانترنت</string>
+    <string name="close">اغلاق</string>
+    
+    <!-- MEDIA CENTER -->
+    <string name="projects">مشاريعنا</string>
+    
+    <!-- OUR PRESIDENTS NAMES -->
+    <string name="ch1">الشيخ جاسم بن محمد بن ثاني</string>
+    <string name="ch2">الشيخ عبد الله بن قاسم ال ثاني</string>
+    <string name="ch3">الشيخ علي بن عبد الله آل ثاني</string>
+    <string name="ch4">الشيخ أحمد بن علي آل ثاني</string>
+    <string name="ch5">الشيخ خليفة بن حمد آل ثاني</string>
+    <string name="ch6">الشيخ حمد بن خليفة آل ثاني</string>
+    <string name="ch7">الشيخ تميم بن حمد بن خليفة آل ثاني</string>
+    
+    <!-- PROJECTS DATA -->
+    <string name="proj1_name">دليل قطر للأعمال</string>
+    <string name="proj2_name">دليل الدوحة الطبي</string>
+    <string name="proj3_name">مجلة عيون قطر</string>
+    <string name="proj4_name">السجل الوطني لدولة قطر</string>
+    <string name="proj5_name">دليل العمل والأعمال بدولة قطر</string>
+    
 </resources>

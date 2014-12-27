@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/about_qatar_category_layout_padding" >
+
+    <ImageView
+        android:id="@+id/image_image"
+        android:layout_width="@dimen/media_center_logo_dimen"
+        android:layout_height="@dimen/media_center_logo_dimen"
+        android:layout_gravity="center_horizontal"
+        android:adjustViewBounds="true"
+        android:scaleType="centerInside"
+        android:src="@drawable/national_day_ch1" />
+
+    <TextView
+        android:gravity="center"
+        android:textStyle="bold"
+        android:id="@+id/text_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/national_days_item_text_margin"
+        android:text="name"
+        android:textColor="@color/font_dark_brown"
+        android:textSize="@dimen/text_medium" />
+
+</LinearLayout>

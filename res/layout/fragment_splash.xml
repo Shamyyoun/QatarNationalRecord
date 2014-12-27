@@ -6,11 +6,11 @@
 
     <ImageView
         android:id="@+id/imageView1"
-        android:layout_width="wrap_content"
+        android:layout_width="@dimen/splash_logo_size"
         android:layout_height="0dp"
         android:layout_gravity="center"
         android:layout_weight="3"
-        android:src="@drawable/splash_icon" />
+        android:src="@drawable/national_day_logo" />
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -38,7 +38,7 @@
             <ImageView
                 android:layout_marginLeft="@dimen/splash_emc_margin"
                 android:id="@+id/imageView2"
-                android:layout_width="wrap_content"
+                android:layout_width="@dimen/splash_emc_logo_size"
                 android:layout_height="wrap_content"
                 android:src="@drawable/splash_emc_icon" />
 

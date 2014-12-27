@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="@dimen/sponsors_item_layout_padding" >
+
+    <FrameLayout
+        android:layout_width="@dimen/sponsors_item_thumbnail_width"
+        android:layout_height="@dimen/sponsors_item_thumbnail_width"
+        android:layout_gravity="center" >
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center" />
+
+        <com.noqwerty.sqw.customviews.RoundedImageView
+            android:id="@+id/image_thumbail"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY" />
+    </FrameLayout>
+
+    <TextView
+        android:id="@+id/text_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/sponsors_item_layout_padding"
+        android:layout_weight="1"
+        android:gravity="left"
+        android:text="Media Center"
+        android:textColor="@color/font_dark_brown"
+        android:textSize="@dimen/text_medium" />
+
+    <TextView
+        android:id="@+id/text_position"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
+
+</LinearLayout>

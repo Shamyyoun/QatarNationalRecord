@@ -89,7 +89,7 @@ public class SlideExpandableListView extends ExpandableListView {
      * 10.This time when the ListView will not get any of the child views for
      *    the collapsed group.
      */
-
+	
     private static final String TAG = AnimatedExpandableListAdapter.class.getSimpleName();
 
     /**

@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <color name="main">#674835</color>
+    <color name="brown">#674835</color>
+    <color name="ligth_brown">#8b6249</color>
     <color name="font_dark_brown">#674835</color>
     <color name="font_white">#FFFFFF</color>
     <color name="tabs_seperator_bg">#937A6A</color>
+    <color name="gray">#eeeeee</color>
+    <color name="blue">#0662DB</color>
 
 </resources>

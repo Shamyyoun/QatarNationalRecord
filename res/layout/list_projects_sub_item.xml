@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/events_subitem_bg"
+    android:paddingBottom="@dimen/national_days_item_text_margin"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/text_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/our_president_layout_padding"
+        android:paddingRight="@dimen/our_president_layout_padding"
+        android:text="desc desc desc"
+        android:textColor="@color/font_dark_brown"
+        android:textSize="@dimen/text_medium" />
+
+    <TextView
+        android:id="@+id/text_link"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/national_days_item_text_margin"
+        android:paddingLeft="@dimen/our_president_layout_padding"
+        android:paddingRight="@dimen/our_president_layout_padding"
+        android:text="desc desc desc"
+        android:textColor="@color/blue"
+        android:textSize="@dimen/text_medium" />
+
+</LinearLayout>

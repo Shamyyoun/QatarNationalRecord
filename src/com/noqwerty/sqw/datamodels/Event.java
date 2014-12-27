@@ -1,15 +1,21 @@
 package com.noqwerty.sqw.datamodels;
 
+import android.graphics.Bitmap;
 
 public class Event {
 	private String title;
-	private String description;
-	private int[] imagesResources;
+	private String[] imageNames;
+	private Bitmap[] images;
+	
+	// flag array for list view
+	private boolean[] imagesVisible;
 
-	public Event(String title, String description, int[] imagesResources) {
+	public Event(String title, String[] imageNames) {
 		this.title = title;
-		this.description = description;
-		this.imagesResources = imagesResources;
+		this.imageNames = imageNames;
+		
+		images = new Bitmap[imageNames.length];
+		imagesVisible = new boolean[imageNames.length];
 	}
 
 	public void setTitle(String title) {
@@ -20,19 +26,19 @@ public class Event {
 		return title;
 	}
 
-	public void setDescription(String description) {
-		this.description = description;
+	public void setImageNames(String[] imageNames) {
+		this.imageNames = imageNames;
 	}
 
-	public String getDescription() {
-		return description;
+	public String[] getImageNames() {
+		return imageNames;
 	}
-
-	public void setImagesResources(int[] imagesResources) {
-		this.imagesResources = imagesResources;
+	
+	public Bitmap[] getImages() {
+		return images;
 	}
-
-	public int[] getImagesResources() {
-		return imagesResources;
+	
+	public boolean[] getImagesVisible() {
+		return imagesVisible;
 	}
 }

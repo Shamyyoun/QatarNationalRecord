@@ -9,11 +9,11 @@
         android:orientation="vertical"
         android:padding="@dimen/about_qatar_category_layout_padding" >
 
-        <ImageView
+        <com.noqwerty.sqw.customviews.RoundedCornersImageView
             android:id="@+id/image_image"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/about_qatar_category_image_height"
-            android:background="@drawable/factory" />
+            android:layout_height="wrap_content"
+            android:src="@drawable/qatar_future" />
 
         <TextView
             android:id="@+id/text_description"
@@ -22,7 +22,7 @@
             android:layout_marginTop="@dimen/about_qatar_category_text_margin_top"
             android:text="صناعة صناعة"
             android:textColor="@color/font_dark_brown"
-            android:textSize="@dimen/text_small" />
+            android:textSize="@dimen/text_medium" />
     </LinearLayout>
 
 </ScrollView>

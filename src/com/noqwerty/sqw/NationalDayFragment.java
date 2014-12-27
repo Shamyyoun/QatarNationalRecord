@@ -8,7 +8,6 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.noqwerty.sqw.datamodels.Constants;
 import com.noqwerty.sqw.utils.FragmentUtil;
 
 public class NationalDayFragment extends Fragment implements OnClickListener {
@@ -21,6 +20,7 @@ public class NationalDayFragment extends Fragment implements OnClickListener {
 	// tabs objects
 	private TextView textVideos;
 	private TextView textEvents;
+	private TextView textNationalDay;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -35,22 +35,27 @@ public class NationalDayFragment extends Fragment implements OnClickListener {
 		activity = (MainActivity) getActivity();
 		fragmentUtil = new FragmentUtil(activity, true);
 
-		// customize actionbar
+		// customize activity
 		activity.textTitle.setText(activity.getString(R.string.national_day));
 		activity.buttonPlay.setVisibility(View.GONE);
+		activity.spinner.setVisibility(View.GONE);
+		activity.stopMusic();
 
 		// init tabs objects
 		textVideos = (TextView) rootView
 				.findViewById(R.id.text_videos);
 		textEvents = (TextView) rootView.findViewById(R.id.text_events);
+		textNationalDay = (TextView) rootView.findViewById(R.id.text_nationalDay);
 
 		// add listeners
 		textVideos.setOnClickListener(this);
 		textEvents.setOnClickListener(this);
+		textNationalDay.setOnClickListener(this);
 
 		// goto first tab as default
 		fragmentUtil.gotoFragment(R.id.container_national_day,
-				new EventsFragment(), EventsFragment.TAG);
+				new NationalDayMainFragment(), NationalDayMainFragment.TAG);
+		selectTab(textNationalDay);
 	}
 
 	@Override
@@ -59,15 +64,36 @@ public class NationalDayFragment extends Fragment implements OnClickListener {
 		case R.id.text_videos:
 			fragmentUtil.gotoFragment(R.id.container_national_day,
 					new VideosFragment(), VideosFragment.TAG);
+			
+			selectTab(textVideos);
 			break;
 			
 		case R.id.text_events:
 			fragmentUtil.gotoFragment(R.id.container_national_day,
 					new EventsFragment(), EventsFragment.TAG);
+			
+			selectTab(textEvents);
+			break;
+			
+		case R.id.text_nationalDay:
+			fragmentUtil.gotoFragment(R.id.container_national_day,
+					new NationalDayMainFragment(), NationalDayMainFragment.TAG);
+			
+			selectTab(textNationalDay);
 			break;
 
 		default:
 			break;
 		}
+	}
+	
+	protected void selectTab(TextView textView) {
+		// unselect all first
+		textEvents.setSelected(false);
+		textVideos.setSelected(false);
+		textNationalDay.setSelected(false);
+		
+		// select desired item
+		textView.setSelected(true);
 	}
 }

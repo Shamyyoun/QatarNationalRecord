@@ -10,6 +10,9 @@ import android.util.DisplayMetrics;
 import com.noqwerty.sqw.datamodels.Constants;
 
 public class AppController {
+	public static final String END_POINT = "http://www.tawrny.com/~noqwerty";
+	public static final String EVENT_IMAGES_LINK = END_POINT + "/new/company/qatar_events/";
+	public static final String SPONSORS_INAGES_LINK = END_POINT + "/Emc/qatar_logos/";
 	public static String appLanguage;
 
 	/*
@@ -31,6 +34,22 @@ public class AppController {
 	}
 
 	/*
+	 * used to get language from sp
+	 */
+	public static boolean isEventImagesLoaded(Context context) {
+		return getCachedBoolean(context, Constants.SP_DATA,
+				Constants.SP_DATA_EVENTS_IMAGES);
+	}
+
+	/*
+	 * used to update event images loaded in sp
+	 */
+	public static void updateEventImagesLoaded(Context context, boolean loaded) {
+		updateCacheBoolean(context, Constants.SP_DATA,
+				Constants.SP_DATA_EVENTS_IMAGES, loaded);
+	}
+
+	/*
 	 * used to update locale setting language
 	 */
 	public static void updateLocaleSetting(Context context, String appLanguage) {
@@ -40,7 +59,7 @@ public class AppController {
 		android.content.res.Configuration conf = res.getConfiguration();
 		conf.locale = new Locale(appLanguage);
 		res.updateConfiguration(conf, dm);
-		
+
 		AppController.appLanguage = appLanguage;
 	}
 
@@ -65,6 +84,31 @@ public class AppController {
 		SharedPreferences sp = context.getSharedPreferences(spName,
 				Context.MODE_PRIVATE);
 		String value = sp.getString(valueName, null);
+
+		return value;
+	}
+
+	/*
+	 * update boolean value in SP
+	 */
+	private static void updateCacheBoolean(Context context, String spName,
+			String valueName, boolean value) {
+
+		SharedPreferences sp = context.getSharedPreferences(spName,
+				Context.MODE_PRIVATE);
+		SharedPreferences.Editor editor = sp.edit();
+		editor.putBoolean(valueName, value);
+		editor.commit();
+	}
+
+	/*
+	 * get chached boolean from SP
+	 */
+	private static boolean getCachedBoolean(Context context, String spName,
+			String valueName) {
+		SharedPreferences sp = context.getSharedPreferences(spName,
+				Context.MODE_PRIVATE);
+		boolean value = sp.getBoolean(valueName, false);
 
 		return value;
 	}

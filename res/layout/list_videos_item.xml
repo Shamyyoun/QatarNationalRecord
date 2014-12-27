@@ -3,7 +3,6 @@
     android:id="@+id/text_title"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:gravity="left"
     android:layout_gravity="center_vertical"
     android:padding="@dimen/sponsors_item_layout_padding"
     android:text="رابط الفيديو"

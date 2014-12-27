@@ -3,10 +3,12 @@ package com.noqwerty.sqw.adapters;
 import java.util.List;
 
 import android.app.Activity;
-import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
 import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
@@ -15,13 +17,14 @@ import com.noqwerty.sqw.R;
 import com.noqwerty.sqw.datamodels.Video;
 
 public class VideosAdapter extends ArrayAdapter<Video> {
-	Context context;
+	Activity activity;
 	int layoutResourceId;
 	List<Video> data;
 
-	public VideosAdapter(Context context, int layoutResourceId, List<Video> data) {
-		super(context, layoutResourceId, data);
-		this.context = context;
+	public VideosAdapter(Activity activity, int layoutResourceId,
+			List<Video> data) {
+		super(activity, layoutResourceId, data);
+		this.activity = activity;
 		this.layoutResourceId = layoutResourceId;
 		this.data = data;
 	}
@@ -32,7 +35,7 @@ public class VideosAdapter extends ArrayAdapter<Video> {
 		final ViewHolder holder;
 
 		if (row == null) {
-			LayoutInflater inflater = ((Activity) context).getLayoutInflater();
+			LayoutInflater inflater = ((Activity) activity).getLayoutInflater();
 			row = inflater.inflate(layoutResourceId, parent, false);
 			holder = new ViewHolder();
 			holder.textTitle = (TextView) row.findViewById(R.id.text_title);
@@ -43,10 +46,10 @@ public class VideosAdapter extends ArrayAdapter<Video> {
 			holder = (ViewHolder) row.getTag();
 		}
 
-		Video video = data.get(position);
+		final Video video = data.get(position);
 
-		holder.textTitle.setText(Html.fromHtml("<html><u>" + video.getTitle()
-				+ "</u></html>"));
+		holder.textTitle.setText(Html.fromHtml("<u>" + video.getTitle()
+				+ "</u>"));
 
 		return row;
 	}
