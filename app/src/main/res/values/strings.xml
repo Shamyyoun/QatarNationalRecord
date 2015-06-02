@@ -74,13 +74,13 @@
     
     <!-- PROJECTS DATA -->
     <string name="proj1_name">Qatar Business Giude</string>
-    <string name="proj1_link">http://www.qbguide.co</string>
+    <string name="proj1_link" translatable="false">http://www.qbguide.co</string>
     <string name="proj2_name">Doha Medical Giude</string>
-    <string name="proj2_link">http://www.tbeebk.com</string>
+    <string name="proj2_link" translatable="false">http://www.tbeebk.com</string>
     <string name="proj3_name">Eyes Of Qatar Magazine</string>
-    <string name="proj3_link">http://www.eyesofqatar.com</string>
+    <string name="proj3_link" translatable="false">http://www.eyesofqatar.com</string>
     <string name="proj4_name">Qatar National Record</string>
-    <string name="proj4_link">http://www.qnationalguide.com</string>
+    <string name="proj4_link" translatable="false">http://www.qnationalguide.com</string>
     <string name="proj5_name">Qatar Labor And Business Giude</string>
-    <string name="proj5_link">http://www.qlguide.com</string>
+    <string name="proj5_link" translatable="false">http://www.qlguide.com</string>
 </resources>

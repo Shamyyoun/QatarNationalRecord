@@ -10,9 +10,9 @@ import android.util.DisplayMetrics;
 import com.noqwerty.sqw.datamodels.Constants;
 
 public class AppController {
-	public static final String END_POINT = "http://www.tawrny.com/~noqwerty";
-	public static final String EVENT_IMAGES_LINK = END_POINT + "/new/company/qatar_events/";
-	public static final String SPONSORS_INAGES_LINK = END_POINT + "/Emc/qatar_logos/";
+	public static final String END_POINT = "http://www.egypt-media.com/QatarNationalRecord";
+	public static final String EVENT_IMAGES_LINK = END_POINT + "/qatar_events/";
+	public static final String SPONSORS_INAGES_LINK = END_POINT + "/qatar_sponsors_congrats/";
 	public static String appLanguage;
 
 	/*
